@@ -90,12 +90,13 @@
                              HINSTANCE hInstance,
                              LPVOID lpParam)
     {
+      // Dornisoft HWND_MESSAGE
         #ifdef _UNICODE
             return CreateWindowW(lpClassName, lpWndClass, dwStyle, x, y, w, h,
-                                 hWndParent, hMenu, hInstance, lpParam);
+                                 hWndParent == NULL ? HWND_MESSAGE : hWndParent, hMenu, hInstance, lpParam);
         #else
             return CreateWindowA(lpClassName, lpWndClass, dwStyle, x, y, w, h,
-                                 hWndParent, hMenu, hInstance, lpParam);
+                                 hWndParent == NULL ? HWND_MESSAGE : hWndParent, hMenu, hInstance, lpParam);
         #endif
     }
 #endif
